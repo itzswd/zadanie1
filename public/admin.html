@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASTY COFFEE | Панель Администратора</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header class="admin-header">
+        <div class="admin-nav">
+            <div class="admin-brand">
+                <img src="./images/LOGO.png" alt="Nasty Coffee" class="admin-logo">
+                <span class="admin-badge">ADMIN PANEL</span>
+            </div>
+            <div class="admin-actions">
+                <span id="adminGreeting" style="font-size: 0.85rem; color: #fff;">Администратор</span>
+                <a href="index.html" class="admin-btn">← На сайт</a>
+                <button class="admin-btn" id="btnAdminLogout" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-container">
+        
+        <nav class="admin-tabs">
+            <button class="tab-btn active" data-tab="analytics" type="button">📊 Аналитика & Продажи</button>
+            <button class="tab-btn" data-tab="products" type="button">☕ Меню & Товары</button>
+            <button class="tab-btn" data-tab="blog" type="button">📝 Управление блогом</button>
+            <button class="tab-btn" data-tab="orders" type="button">🧾 История заказов</button>
+        </nav>
+
+        <section class="tab-content active" id="tab-analytics">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-title">Общая выручка</span>
+                    <span class="stat-value" id="kpiRevenue">0 ₽</span>
+                    <span class="stat-sub">за всё время работы</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-title">Оформлено заказов</span>
+                    <span class="stat-value" id="kpiOrdersCount">0</span>
+                    <span class="stat-sub">все чеки сохранены</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-title">Средний чек</span>
+                    <span class="stat-value" id="kpiAvgCheck">0 ₽</span>
+                    <span class="stat-sub">на одного гостя</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-title">Продано порций</span>
+                    <span class="stat-value" id="kpiItemsSold">0 шт.</span>
+                    <span class="stat-sub">напитки и десерты</span>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Динамика выручки (₽)</h3>
+                    <div style="position: relative; height: 320px; width: 100%;">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>Популярность напитков</h3>
+                    <div style="position: relative; height: 320px; width: 100%;">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-top">
+                <h2>Последние чеки</h2>
+            </div>
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Номер чека</th>
+                            <th>Дата и время</th>
+                            <th>Покупатель</th>
+                            <th>Товары в чеке</th>
+                            <th>Сумма</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentOrdersTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="tab-content" id="tab-products">
+            <div class="section-top">
+                <h2>Каталог меню</h2>
+                <button class="btn-primary" id="btnOpenAddProduct" type="button">+ Добавить позицию</button>
+            </div>
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Фото</th>
+                            <th>Название</th>
+                            <th>Категория</th>
+                            <th>Цена</th>
+                            <th>Действие</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="tab-content" id="tab-blog">
+            <div class="section-top">
+                <h2>Статьи кофейного блога</h2>
+                <button class="btn-primary" id="btnOpenAddArticle" type="button">+ Написать статью</button>
+            </div>
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Заголовок</th>
+                            <th>Автор</th>
+                            <th>Дата</th>
+                            <th>Действие</th>
+                        </tr>
+                    </thead>
+                    <tbody id="articlesTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="tab-content" id="tab-orders">
+            <div class="section-top">
+                <h2>Все оформленные чеки</h2>
+            </div>
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID чека</th>
+                            <th>Дата</th>
+                            <th>Гость</th>
+                            <th>Позиции</th>
+                            <th>Итого</th>
+                        </tr>
+                    </thead>
+                    <tbody id="allOrdersTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-box">
+            <button class="modal-close-btn" id="closeProductModal" type="button">&times;</button>
+            <h3>Добавить новую позицию</h3>
+            <form class="admin-form" id="addProductForm">
+                <div class="form-field">
+                    <label for="prodTitle">Название напитка или выпечки</label>
+                    <input type="text" id="prodTitle" required placeholder="Например: Bumble Coffee">
+                </div>
+                <div class="form-field">
+                    <label for="prodCategory">Категория</label>
+                    <select id="prodCategory">
+                        <option value="coffee">Классический кофе</option>
+                        <option value="cold">Холодные напитки</option>
+                        <option value="bakery">Выпечка и десерты</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="prodPrice">Цена (₽)</label>
+                    <input type="number" id="prodPrice" required min="1" placeholder="350">
+                </div>
+                <div class="form-field">
+                    <label for="prodImage">Изображение (файл из папки images)</label>
+                    <select id="prodImage">
+                        <option value="./images/coffee_cup.png">Фирменный стаканчик</option>
+                        <option value="./images/iced-latte.png">Iced Latte</option>
+                        <option value="./images/cold-brew.png">Cold Brew</option>
+                        <option value="./images/iced-caramel.png">Iced Caramel</option>
+                        <option value="./images/matcha-latte.png">Matcha Latte</option>
+                        <option value="./images/croissant.png">Круассан</option>
+                        <option value="./images/donut.png">Пончик</option>
+                    </select>
+                </div>
+                <button class="btn-primary" type="submit" style="width: 100%; padding: 14px; margin-top: 10px;">Сохранить в меню</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="articleModal">
+        <div class="modal-box">
+            <button class="modal-close-btn" id="closeArticleModal" type="button">&times;</button>
+            <h3>Опубликовать статью</h3>
+            <form class="admin-form" id="addArticleForm">
+                <div class="form-field">
+                    <label for="artTitle">Заголовок статьи</label>
+                    <input type="text" id="artTitle" required placeholder="Секреты заваривания...">
+                </div>
+                <div class="form-field">
+                    <label for="artAuthor">Автор и должность</label>
+                    <input type="text" id="artAuthor" required placeholder="Денис, шеф-бариста">
+                </div>
+                <div class="form-field">
+                    <label for="artDesc">Краткое содержание</label>
+                    <textarea id="artDesc" required placeholder="О чём эта статья..."></textarea>
+                </div>
+                <button class="btn-primary" type="submit" style="width: 100%; padding: 14px; margin-top: 10px;">Опубликовать</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="./js/admin.js"></script>
+</body>
+</html>

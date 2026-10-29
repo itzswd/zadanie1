@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASTY COFFEE </title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+<header class="header">
+    <div class="header-bar">
+        <a href="#" class="logo"><img src="./images/LOGO.png" alt="Логотип Nasty Coffee"></a>
+        <nav class="nav-links">
+            <a href="#main" class="nav-link">главная</a>
+            <a href="#menu" class="nav-link">меню</a>
+            <a href="#stickers" class="nav-link">стикеры</a>
+            <a href="#blog" class="nav-link">блог</a>
+            <a href="admin.html" class="nav-link" id="navAdminLink" style="display: none; color: #e09f58;">админка</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="btn-login nav-button" id="btnLogin" type="button">войти</button>
+            <button class="btn-cart nav-button" type="button">корзина: <span class="cart-count">0</span></button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="main" class="hero">
+    <div class="container hero-container">
+        <div class="hero-description">
+            <h1 class="hero-title">Дерзкий кофе</h1>
+            <p class="hero-subtitle">
+Энергия большого города в каждой чашке. 100% свежеобжаренная арабика, авторские рафы, альтернативное молоко и утренняя выпечка.
+            </p>
+            <a href="#menu" class="hero-btn">Выбрать кофе →</a>
+        </div>
+        <div class="hero-image">
+            <img src="./images/coffee_cup.png" alt="Фирменный стаканчик Nasty Coffee">
+        </div>
+    </div>
+    </section>
+
+    <section id="menu" class="menu">
+        <div class="container menu-container">
+            <h2 class="menu-title">Меню</h2>
+        <div class="menu-items" id="menuItemsContainer">
+            <article class="menu-item">
+                <div class="item-image">
+                    <img src="./images/iced-latte.png" alt="Iced Latte">
+                </div>
+                <h3 class="item-title">iced latte</h3>
+                <div class="item-footer">
+                    <span class="item-price">320 ₽</span>
+                    <button class="btn-add-cart" type="button" title="Добавить в корзину">+</button>
+                </div>
+            </article>
+
+            <article class="menu-item">
+                <div class="item-image">
+                    <img src="./images/cold-brew.png" alt="Cold Brew">
+                </div>
+                <h3 class="item-title">cold brew</h3>
+                <div class="item-footer">
+                    <span class="item-price">260 ₽</span>
+                    <button class="btn-add-cart" type="button" title="Добавить в корзину">+</button>
+                </div>
+            </article>
+
+            <article class="menu-item">
+                <div class="item-image">
+                    <img src="./images/iced-caramel.png" alt="Caramel Macchiato">
+                </div>
+                <h3 class="item-title">caramel macchiato</h3>
+                <div class="item-footer">
+                    <span class="item-price">340 ₽</span>
+                    <button class="btn-add-cart" type="button" title="Добавить в корзину">+</button>
+                </div>
+            </article>
+
+            <article class="menu-item">
+                <div class="item-image">
+                    <img src="./images/matcha-latte.png" alt="Matcha Latte">
+                </div>
+                <h3 class="item-title">matcha latte</h3>
+                <div class="item-footer">
+                    <span class="item-price">350 ₽</span>
+                    <button class="btn-add-cart" type="button" title="Добавить в корзину">+</button>
+                </div>
+            </article>
+
+            <article class="menu-item">
+                <div class="item-image">
+                    <img src="./images/croissant.png" alt="French Croissant">
+                </div>
+                <h3 class="item-title">french croissant</h3>
+                <div class="item-footer">
+                    <span class="item-price">190 ₽</span>
+                    <button class="btn-add-cart" type="button" title="Добавить в корзину">+</button>
+                </div>
+            </article>
+
+            <article class="menu-item">
+                <div class="item-image">
+                    <img src="./images/donut.png" alt="Chocolate Donut">
+                </div>
+                <h3 class="item-title">chocolate donut</h3>
+                <div class="item-footer">
+                    <span class="item-price">180 ₽</span>
+                    <button class="btn-add-cart" type="button" title="Добавить в корзину">+</button>
+                </div>
+            </article>
+        </div>
+        </div>
+    </section>
+
+    <section id="stickers" class="stickers-section">
+    <div class="container stickers-container">
+        
+        <div class="stickers-header">
+            <h2 class="stickers-title">Кастомизируй свой стакан</h2>
+            <p class="stickers-subtitle">Перетаскивай фирменные стикеры прямо на стаканчик и создавай свой стиль</p>
+        </div>
+
+        <div class="stickers-workspace">
+            <div class="cup-dropzone" id="cupDropzone">
+                <img src="./images/coffee_cup.png" alt="Стакан для стикеров" class="base-cup-img">
+            </div>
+
+            <div class="stickers-panel">
+                <h3 class="panel-title">Выбери стикер:</h3>
+                <div class="stickers-list">
+                    <div class="sticker" draggable="true" data-sticker="WAKE UP">WAKE UP</div>
+                    <div class="sticker" draggable="true" data-sticker="NASTY MOOD">NASTY MOOD</div>
+                    <div class="sticker" draggable="true" data-sticker="100% ARABICA">100% ARABICA</div>
+                    <div class="sticker" draggable="true" data-sticker="DOUBLE SHOT">DOUBLE SHOT</div>
+                    <div class="sticker" draggable="true" data-sticker="AESTHETIC">AESTHETIC</div>
+                </div>
+                <button class="btn-reset-stickers" id="resetStickers" type="button">Очистить стакан</button>
+            </div>
+        </div>
+
+    </div>
+    </section>
+
+    <section class="blog-section" id="blog">
+        <div class="container blog-container">
+            <h2 class="blog-title">Блог</h2>
+            <div class="blog-items" id="blogItemsContainer">
+                <article class="blog-item">
+                    <div class="blog-meta">
+                        <time datetime="2026-10-20" class="blog-date">20 октября 2026</time>
+                        <span class="blog-author">Денис, бариста</span>
+                    </div>
+                    <h3 class="blog-item-title">Как мы выбираем зёрна для Nasty Coffee</h3>
+                    <p>Рассказываем про поиск спешелти лотов в Колумбии и Эфиопии: от плотности ягод и высоты плантаций до оценки Q-грейдеров и первого каппинга в нашей лаборатории.</p>
+                    <a href="#" class="blog-link">Читать статью →</a>
+                </article>
+
+                <article class="blog-item">
+                    <div class="blog-meta">
+                        <time datetime="2026-10-25" class="blog-date">25 октября 2026</time>
+                        <span class="blog-author">Антон, эксперт</span>
+                    </div>
+                    <h3 class="blog-item-title">Как выбрать кофе для себя</h3>
+                    <p>Кислотность или плотное тело? Разбираемся во вкусовых дескрипторах, отличиях мытой и натуральной обработки, и помогаем найти идеальный сорт под твой метод заваривания.</p>
+                    <a href="#" class="blog-link">Читать статью →</a>
+                </article>
+
+                <article class="blog-item">
+                    <div class="blog-meta">
+                        <time datetime="2026-01-05" class="blog-date">5 января 2026</time>
+                        <span class="blog-author">Артур, владелец</span>
+                    </div>
+                    <h3 class="blog-item-title">История нашей кофейни</h3>
+                    <p>От маленького гаражного ростера и мечты о дерзком вкусе до собственного комьюнити в центре города. Честный путь создания места со своим характером.</p>
+                    <a href="#" class="blog-link">Читать статью →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo">NASTY COFFEE</span>
+                <span class="footer-tagline">best coffee for you</span>
+            </div>
+            <p class="footer-copy">&copy; 2026 NASTY COFFEE</p>
+        </div>
+    </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer" aria-label="Корзина">
+    <div class="cart-header">
+        <h3 class="cart-title">Ваш заказ</h3>
+        <button class="cart-close" id="cartClose" type="button" aria-label="Закрыть корзину">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+        <p class="cart-empty">Корзина пуста</p>
+    </div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span class="cart-total-label">Итого:</span>
+            <span class="cart-total-price" id="cartTotalPrice">0 ₽</span>
+        </div>
+        <button class="btn-checkout" id="checkoutBtn" type="button">Оформить заказ</button>
+    </div>
+</aside>
+
+<div class="auth-overlay" id="authModal">
+    <div class="auth-card">
+        <button class="auth-close" id="authClose" type="button" aria-label="Закрыть">&times;</button>
+
+
+        <div class="auth-tabs">
+            <button class="auth-tab active" id="tabLogin" type="button">Вход</button>
+            <button class="auth-tab" id="tabRegister" type="button">Регистрация</button>
+        </div>
+
+
+        <form class="auth-form" id="loginForm">
+            <h3 class="auth-title">С возвращением!</h3>
+            <div class="form-group">
+                <input type="email" id="loginEmail" placeholder="Почта" required autocomplete="email">
+            </div>
+            <div class="form-group">
+                <input type="password" id="loginPassword" placeholder="Пароль" required autocomplete="current-password">
+            </div>
+            <button class="btn-auth-submit" type="submit">Войти в аккаунт</button>
+        </form>
+
+
+        <form class="auth-form hidden" id="registerForm">
+            <h3 class="auth-title">Создать аккаунт</h3>
+            <div class="form-group">
+                <input type="text" id="regName" placeholder="Ваше имя" required autocomplete="name">
+            </div>
+            <div class="form-group">
+                <input type="email" id="regEmail" placeholder="Почта" required autocomplete="email">
+            </div>
+            <div class="form-group">
+                <input type="password" id="regPassword" placeholder="Придумайте пароль" required autocomplete="new-password">
+            </div>
+            <button class="btn-auth-submit" type="submit">Зарегистрироваться</button>
+        </form>
+
+    </div>
+</div>
+
+
+<div class="receipt-modal-overlay" id="receiptModal">
+    <div class="receipt-card">
+        <button class="receipt-close" id="receiptClose" type="button" aria-label="Закрыть чек">&times;</button>
+        
+        <div class="receipt-paper" id="receiptPrintArea">
+            <div class="receipt-header">
+                <h3>☕ NASTY COFFEE</h3>
+                <p class="receipt-address">г. Новосибирск, Красный пр-т, 22</p>
+                <p class="receipt-inn">ИНН 540612345678 • ОФД ЧЕК</p>
+                <div class="receipt-divider">----------------------------------------</div>
+                <p class="receipt-order-num" id="receiptOrderNum">КАССОВЫЙ ЧЕК #NST-5056</p>
+                <p class="receipt-datetime" id="receiptDateTime">22.10.2026 • 18:20</p>
+                <p class="receipt-customer" id="receiptCustomer">Покупатель: Гость</p>
+                <div class="receipt-divider">----------------------------------------</div>
+            </div>
+
+            <div class="receipt-items-list" id="receiptItemsList">
+                
+            </div>
+
+            <div class="receipt-divider">----------------------------------------</div>
+            
+            <div class="receipt-summary">
+                <div class="receipt-sum-row total">
+                    <span>ИТОГО К ОПЛАТЕ:</span>
+                    <span id="receiptTotalSum">0 ₽</span>
+                </div>
+                <p class="receipt-payment-type">Электронными (Безналичный расчет)</p>
+            </div>
+
+            <div class="receipt-footer">
+                <div class="receipt-divider">----------------------------------------</div>
+                <p class="receipt-thanks">СПАСИБО ЗА ЗАКАЗ!</p>
+                <p class="receipt-tagline">ПРИХОДИТЕ ЗА ДЕРЗКИМ КОФЕ СНОВА</p>
+                <div class="receipt-barcode">||| | |||| || ||| |||| || | |||| |||</div>
+            </div>
+        </div>
+
+        <div class="receipt-actions">
+            <button class="btn-print-receipt" id="btnPrintReceipt" type="button">Распечатать чек / PDF</button>
+        </div>
+    </div>
+</div>
+
+<script src="./js/main.js"></script>
+
+</body>
+</html>
