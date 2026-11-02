@@ -81,7 +81,7 @@ section {
 }
 
 .nav-links {
-    font-size: clamp(1rem, 1.2vw, 2rem);
+    font-size: clamp(1rem, 1.2vw, 1.6rem);
 
     display: flex;
     gap: 20px;
